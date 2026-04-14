@@ -48,6 +48,8 @@ public class SalesActivity extends AppCompatActivity {
         });
     }
 
+    //
+
     private void calculatePricing(){
 
         double subtotal = 0;
