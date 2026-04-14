@@ -24,7 +24,7 @@
             android:name=".InventoryActivity"
             android:exported="false" />
         <activity
-            android:name=".OrderActivity"
+            android:name=".OrdersActivity"
             android:exported="false" />
         <activity
             android:name=".MenuActivity"

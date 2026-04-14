@@ -70,7 +70,7 @@
                 app:strokeWidth="10dp" />
 
             <Button
-                android:id="@+id/btnOrder"
+                android:id="@+id/btnOrders"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
                 android:layout_marginRight="50dp"

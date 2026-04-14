@@ -25,7 +25,7 @@ public class SalesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.salesui);
+        setContentView(R.layout.activity_sales);
         db = new DatabaseHelper(this);
 
         tvSubtotal = findViewById(R.id.tvSubtotal);

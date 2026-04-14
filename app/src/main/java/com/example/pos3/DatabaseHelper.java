@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // tables
-    private static final String TABLE_EMPLOYEE = "employee";
+    static final String TABLE_EMPLOYEE = "employee";
     private static final String TABLE_FOOD = "food";
     private static final String TABLE_CATEGORY = "category";
     private static final String TABLE_ORDER = "order";
@@ -22,9 +22,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // column employee
     private static final String COLUMN_EMP_ID = "id";
-    private static final String COLUMN_EMP_USER = "name";
-    private static final String COLUMN_EMP_PASS = "pass";
-    private static final String COLUMN_EMP_ROLE = "role";
+    static final String COLUMN_EMP_USER = "name";
+    static final String COLUMN_EMP_PASS = "pass";
+    static final String COLUMN_EMP_ROLE = "role";
 
     // column food
     private static final String COLUMN_FOOD_ID = "id";
@@ -127,6 +127,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
         + " = " + COLUMN_INVENTORY_QTY + " - " + qtySold + " WHERE "
+        + COLUMN_INVENTORY_ID + " = " + inventoryId;
+        db.execSQL(query);
     }
 
     @Override
@@ -144,25 +146,31 @@ String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
 
     private void SeedData(SQLiteDatabase db) {
         //admin acc
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_EMP_USER, "admin");
-        values.put(COLUMN_EMP_PASS, "admin");
-        values.put(COLUMN_EMP_ROLE, "admin");
-        db.insert(TABLE_EMPLOYEE, null, values);
+        ContentValues admin = new ContentValues();
+        admin.put(COLUMN_EMP_USER, "admin");
+        admin.put(COLUMN_EMP_PASS, "admin");
+        admin.put(COLUMN_EMP_ROLE, "admin");
+        db.insert(TABLE_EMPLOYEE, null, admin);
 
         //inventory acc
-        ContentValues vales = new ContentValues();
-        values.put(COLUMN_EMP_USER, "inventory");
-        values.put(COLUMN_EMP_PASS, "inventory");
-        values.put(COLUMN_EMP_ROLE, "inventory");
-        db.insert(TABLE_EMPLOYEE, null, values);
+        ContentValues inventory = new ContentValues();
+        inventory.put(COLUMN_EMP_USER, "inventory");
+        inventory.put(COLUMN_EMP_PASS, "inventory");
+        inventory.put(COLUMN_EMP_ROLE, "inventory");
+        db.insert(TABLE_EMPLOYEE, null, inventory);
 
         //sales acc
-        ContentValues value = new ContentValues();
-        values.put(COLUMN_EMP_USER, "sales");
-        values.put(COLUMN_EMP_PASS, "sales");
-        values.put(COLUMN_EMP_ROLE, "sales");
-        db.insert(TABLE_EMPLOYEE, null, values);
+        ContentValues sales = new ContentValues();
+        sales.put(COLUMN_EMP_USER, "sales");
+        sales.put(COLUMN_EMP_PASS, "sales");
+        sales.put(COLUMN_EMP_ROLE, "sales");
+        db.insert(TABLE_EMPLOYEE, null, sales);
+
+        ContentValues assistant = new ContentValues();
+        assistant.put(COLUMN_EMP_USER, "assistant");
+        assistant.put(COLUMN_EMP_PASS, "assistant");
+        assistant.put(COLUMN_EMP_ROLE, "assistant");
+        db.insert(TABLE_EMPLOYEE, null, assistant);
 
     }
 
