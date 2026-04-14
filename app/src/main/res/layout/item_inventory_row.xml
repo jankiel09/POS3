@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical">
+
+    <!-- Product Name -->
+    <TextView
+        android:id="@+id/tvInvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Product Name"
+        android:textSize="16sp"
+        android:textColor="#212529" />
+
+    <!-- Price -->
+    <TextView
+        android:id="@+id/tvInvPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="P0.00"
+        android:gravity="center"
+        android:textColor="#495057" />
+
+    <!-- Stock Quantity -->
+    <TextView
+        android:id="@+id/tvInvQty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#212529" />
+
+</LinearLayout>

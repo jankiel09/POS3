@@ -16,6 +16,31 @@ public class Inventory {
 
     }
 
+    public Inventory() {
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+
+
     public int getId() {
         return id;
     }

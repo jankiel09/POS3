@@ -1,38 +1,73 @@
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp">
+    android:layout_height="match_parent"
+    android:background="#F8F9FA">
 
+    <!-- Header Section -->
     <LinearLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Orders"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-            <TextView android:id="@+id/tvOrderNumber" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="# 108" android:textStyle="bold" android:textSize="18sp" />
-            <TextView android:id="@+id/tvStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_alignParentRight="true" android:text="Preparing" android:background="#FFF3CD" android:padding="4dp"/>
-        </RelativeLayout>
+    <!-- Orders Grid (The ID that was missing) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOrders"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav" />
 
-        <TextView android:id="@+id/tvOrderDetails" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" android:text="1x Big Mac\n1x Coke" android:textColor="#666"/>
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEE" android:layout_marginVertical="12dp"/>
+        <LinearLayout
+            android:id="@+id/btnNavCheckout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Checkout" />
+        </LinearLayout>
 
-        <TextView android:id="@+id/tvTotal" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="Total: P190.00" android:textStyle="bold" android:gravity="right"/>
+        <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#E0E0E0" />
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp">
-            <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="Refund" android:backgroundTint="#FEE2E2" android:textColor="#DC2626" android:layout_marginRight="4dp"/>
-            <Button android:id="@+id/btnCompleteOrder" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="Complete" android:layout_marginLeft="4dp"/>
+        <LinearLayout
+            android:id="@+id/btnNavOrders"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orders"
+                android:textColor="#0D6EFD"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

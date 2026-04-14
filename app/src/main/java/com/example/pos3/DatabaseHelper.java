@@ -2,8 +2,14 @@ package com.example.pos3;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.pos3.datamodels.Inventory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -123,11 +129,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void updateStock(int inventoryId, int qtySold){
+    public void updateStock(int inventoryId, int qtySold) {
         SQLiteDatabase db = this.getWritableDatabase();
-String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
-        + " = " + COLUMN_INVENTORY_QTY + " - " + qtySold + " WHERE "
-        + COLUMN_INVENTORY_ID + " = " + inventoryId;
+        String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
+                + " = " + COLUMN_INVENTORY_QTY + " - " + qtySold + " WHERE "
+                + COLUMN_INVENTORY_ID + " = " + inventoryId;
         db.execSQL(query);
     }
 
@@ -194,7 +200,37 @@ String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_AUDIT_ACTION, action);
-        values.put(COLUMN_AUDIT_TIMESTAMP, System.currentTimeMillis());
+        // Convert the Long to a String so it matches the TEXT column
+        values.put(COLUMN_AUDIT_TIMESTAMP, String.valueOf(System.currentTimeMillis()));
         db.insert(TABLE_AUDIT, null, values);
     }
+
+    public void markOrderAsCompleted(int orderId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE [order] SET status = 'completed' WHERE id = " + orderId);
+    }
+
+    public List<Inventory> getAllInventory() {
+        List<Inventory> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM  inventory", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Inventory item = new Inventory();
+                item.setId(cursor.getInt(0));
+                item.setName(cursor.getString(1));
+                item.setPrice(cursor.getDouble(2));
+                item.setQty(cursor.getInt(3));
+                list.add(item);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        return list;
+
+
+    }
+
+
 }
