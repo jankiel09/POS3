@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">POS3</string>
+    <string name="welcome_to_mcdonalds">Welcome to Mcdonalds</string>
 </resources>
