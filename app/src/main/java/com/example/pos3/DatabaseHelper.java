@@ -127,6 +127,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
         + " = " + COLUMN_INVENTORY_QTY + " - " + qtySold + " WHERE "
+        + COLUMN_INVENTORY_ID + " = " + inventoryId;
+        db.execSQL(query);
     }
 
     @Override
