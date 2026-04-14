@@ -2,6 +2,7 @@ package com.example.pos3;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -129,6 +130,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("UPDATE inventory SET qty = qty - " + soldQty +
                 " WHERE id = " + cartItemId);
+    }
+
+
+
+    public void updateOrderStatus(int orderId, String newStatus){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("status", newStatus);
+        db.update("order", values, "id = ?", new String[]{String.valueOf(orderId)});
+    }
+
+    public Cursor getAllOrders() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM [order]", null);
     }
 
     @Override

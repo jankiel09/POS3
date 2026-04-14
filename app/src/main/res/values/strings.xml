@@ -6,4 +6,12 @@
     <string name="total_0_00">TOTAL: 0.00</string>
     <string name="subtotal_0_00">Subtotal: 0.00</string>
     <string name="complete_order">COMPLETE ORDER</string>
+    <string name="check_out">Check out</string>
+    <string name="log_out">Log Out</string>
+    <string name="_9_41_28_am">9:41:28 AM</string>
+    <string name="tap_to_start_order">Tap to Start Order</string>
+    <string name="seniors_pwd_20">Senior/PWD (20%)</string>
+    <string name="Subtotal_0_00">Subtotal: 0.00</string>
+    <string name="Vat_12_0_00">VAT (12%): 0.00</string>
+    <string name="Total_0_00">TOTAL: 0.00</string>
 </resources>
