@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.POS3">
         <activity
+            android:name=".ReportsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AuditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InventoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity

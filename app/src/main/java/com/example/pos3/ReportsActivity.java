@@ -1,7 +1,6 @@
 package com.example.pos3;
 
 import android.os.Bundle;
-import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,30 +8,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MenuActivity extends AppCompatActivity {
+public class ReportsActivity extends AppCompatActivity {
 
-    Button btnSales, btnOrder, btnInventory, btnEmployees, btnAudit, btnReports, btnLogout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_reports);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        initView();
-
-    }
-
-    private void initView(){
-        btnSales = findViewById(R.id.btnSales);
-        btnOrder = findViewById(R.id.btnOrder);
-        btnInventory = findViewById(R.id.btnInventory);
-        btnEmployees = findViewById(R.id.btnEmployees);
-        btnAudit = findViewById(R.id.btnAudit);
-        btnReports = findViewById(R.id.btnReports);
-        btnLogout = findViewById(R.id.btnLogout);
     }
 }

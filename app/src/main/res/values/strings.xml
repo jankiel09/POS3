@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">POS3</string>
     <string name="welcome_to_mcdonalds">Welcome to Mcdonalds</string>
+    <string name="log_out">Log out</string>
+    <string name="sales">Sales</string>
+    <string name="orders">Orders</string>
+    <string name="reports">Reports</string>
+    <string name="audit">Audit</string>
+    <string name="employees">Employees</string>
 </resources>
