@@ -123,6 +123,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public void updateStock(int inventoryId, int qtySold){
+        SQLiteDatabase db = this.getWritableDatabase();
+String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
+        + " = " + COLUMN_INVENTORY_QTY + " - " + qtySold + " WHERE "
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
