@@ -62,9 +62,6 @@ public class MenuActivity extends AppCompatActivity {
             btnReports.setVisibility(Button.VISIBLE);
             btnLogout.setVisibility(Button.VISIBLE);
         }
-
-
-
     }
 
     private void initView(){
