@@ -12,19 +12,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // tables
-    static final String TABLE_EMPLOYEE = "employee";
+    private static final String TABLE_EMPLOYEE = "employee";
     private static final String TABLE_FOOD = "food";
     private static final String TABLE_CATEGORY = "category";
-    private static final String TABLE_ORDER = "orders";
+    private static final String TABLE_ORDER = "order";
     private static final String TABLE_INVENTORY = "inventory";
     private static final String TABLE_CART = "cart";
     private static final String TABLE_AUDIT = "audit";
 
     // column employee
     private static final String COLUMN_EMP_ID = "id";
-    static final String COLUMN_EMP_USER = "name";
-    static final String COLUMN_EMP_PASS = "pass";
-    static final String COLUMN_EMP_ROLE = "role";
+    private static final String COLUMN_EMP_USER = "name";
+    private static final String COLUMN_EMP_PASS = "pass";
+    private static final String COLUMN_EMP_ROLE = "role";
 
     // column food
     private static final String COLUMN_FOOD_ID = "id";
@@ -127,8 +127,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
         + " = " + COLUMN_INVENTORY_QTY + " - " + qtySold + " WHERE "
-        + COLUMN_INVENTORY_ID + " = " + inventoryId;
-        db.execSQL(query);
     }
 
     @Override
