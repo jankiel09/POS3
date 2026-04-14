@@ -123,10 +123,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void updateStock(int inventoryId, int qtySold){
+    // File: com.example.pos3.DatabaseHelper
+
+    public void updateStock(int cartItemId, int soldQty) {
         SQLiteDatabase db = this.getWritableDatabase();
-String query = "UPDATE " + TABLE_INVENTORY + " SET " + COLUMN_INVENTORY_QTY
-        + " = " + COLUMN_INVENTORY_QTY + " - " + qtySold + " WHERE "
+        db.execSQL("UPDATE inventory SET qty = qty - " + soldQty +
+                " WHERE id = " + cartItemId);
     }
 
     @Override
